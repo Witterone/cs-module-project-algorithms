@@ -3,17 +3,16 @@ Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
 def single_number(arr):
-    temp = []
-    dupli = []
+    temp = set()
+   
     for i in arr:
-        if i not in temp:
-            temp.append(i)
+        if i in temp:
+            temp.remove(i)
         else:
-            dupli.append(i)
+            temp.add(i)
     
-    for x in dupli:
-        temp.remove(x)
-    return temp[0]
+    
+    return temp.pop()
 
 
 if __name__ == '__main__':

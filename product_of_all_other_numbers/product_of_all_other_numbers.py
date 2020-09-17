@@ -4,17 +4,21 @@ Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
     holder = []
-    space = 0
+    #space = 0
+    big_prod = 1
     for i in arr:
-        
-        arr.remove(i)
-        x=1
-        for j in arr:
-            x=x*j
-        holder.append(x)
-        arr.insert(space,i)
-        space +=1
-        
+        big_prod = big_prod * i
+    
+    for i in arr:
+        holder.append(big_prod//i)
+    #     arr.remove(i)
+    #     x=1
+    #     for j in arr:
+    #         x=x*j
+    #     holder.append(x)
+    #     arr.insert(space,i)
+    #     space +=1
+  ### This is no longer useful but a more optimized function uses division      
     return holder
 
 
@@ -27,3 +31,9 @@ if __name__ == '__main__':
 
     print(f"""Output of product_of_all_other_numbers:
           {product_of_all_other_numbers(arr)}""")
+# big_prod = 1
+# for i in arr:
+#     big_prod = big_prod * i
+    
+# for i in arr:
+#     temp.append(big_prod/i)
