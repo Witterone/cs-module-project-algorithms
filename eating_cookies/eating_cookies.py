@@ -2,9 +2,20 @@
 Input: an integer
 Returns: an integer
 '''
-def eating_cookies(n):
-    pass
-        
+def eating_cookies(num, cache =None):
+  
+  if num<0:
+    return 0
+  elif num ==0:
+    return 1
+  elif cache and cache[num]<0:
+    return cache[num]
+  else:
+    if not cache:
+      cache = {i:0 for i in range(num+1)}
+    cache[num]= eating_cookies(num-1,cache)+eating_cookies(
+        num-2,cache)+ eating_cookies(num-3,cache)
+  return cache[num]
 
     
 
